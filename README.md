@@ -8,8 +8,7 @@ USAGE:
 <div class="row" >
   <input ng-model="username" type="text"
          placeholder="Username" 
-         ng-placeholder 
-         required />
+         ng-placeholder />
 </div>
 
 CSS:
@@ -20,6 +19,7 @@ CSS:
 
 .placeholder {
         position: absolute;
-        top: XXpx;  /* depends on input height */
-        left: XXpx; /* depends on input padding */
+        color: #aaa; /* HTML5 placeholder color */
+        top: XXpx;   /* depends on input height */
+        left: XXpx;  /* depends on input padding */
 }
