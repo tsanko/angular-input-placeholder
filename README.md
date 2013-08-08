@@ -7,10 +7,9 @@ It will inject and overlay a div so this solution will work with password field 
 
 ### USAGE
 
-    <div class="row" >
+    <div class="row" ng-placeholder >
       <input ng-model="username" type="text"
-             placeholder="Username" 
-             ng-placeholder />
+             placeholder="Username" />
     </div>
 
 ### CSS
