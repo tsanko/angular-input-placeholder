@@ -1,4 +1,3 @@
-
 app.directive('ngPlaceholder', ['$timeout', function ($timeout) {
 
     var i = document.createElement('input');
@@ -8,7 +7,7 @@ app.directive('ngPlaceholder', ['$timeout', function ($timeout) {
 
     return {
         restrict: 'A',
-        scope: true,
+        scope: {},
         compile: function (element) {
 
             element.append('<div class="placeholder" ng-click="setInput()">{{ placeholder }}</div>');
