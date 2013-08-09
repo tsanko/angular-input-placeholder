@@ -1,5 +1,5 @@
 
-app.directive('ngPlaceholder', ['$timeout', function ($timeout) {
+app.directive('ngPlaceholder', function () {
 
     var i = document.createElement('input');
     if (i.hasOwnProperty('placeholder')) {
@@ -8,36 +8,34 @@ app.directive('ngPlaceholder', ['$timeout', function ($timeout) {
 
     return {
         restrict: 'A',
-        scope: true,
-        compile: function (element) {
+        require: 'ngModel',
+        // Don't isolate the scope as this directive modifies DOM outside the element's scope.
+        //scope: {},
+        compile: function (element, attrs) {
 
-            element.append('<div class="placeholder" ng-click="setInput()">{{ placeholder }}</div>');
+            element.parent().append('<div class="placeholder" ng-click="setFocusFor(\'' + attrs.ngModel + '\')">{{ placeholder' + attrs.ngModel + ' }}</div>');
 
             return function (scope) {
-                // get the placeholder value from included element
-                var input = element.find('input');
 
-                scope.placeholder = input.attr('placeholder');
+                scope.$parent['placeholder' + attrs.ngModel] = element.attr('placeholder');
 
-                scope.setInput = function () {
-                    $timeout(function () {
-                        input.focus();
-                    });
+                scope.$parent.setFocusFor = function (model) {
+                    angular.element('input[ng-model=' + model + ']').focus();
                 };
 
-                input.bind('keyup', function () {
+                element.on('keyup', function () {
                     scope.$apply(function () {
-                        scope.placeholder = (input.val() === '') ? input.attr('placeholder') : scope.placeholder = '';
+                        scope.$parent['placeholder' + attrs.ngModel] = (element.val() === '') ? element.attr('placeholder') : scope.$parent['placeholder' + attrs.ngModel] = '';
                     });
 
-                }).bind('blur', function () {
-                    if (input.val() === '') {
-                        scope.$apply(function () {
-                            scope.placeholder = input.attr('placeholder');
-                        });
-                    }
-                });
+                }).on('blur', function () {
+                        if (element.val() === '') {
+                            scope.$apply(function () {
+                                scope.$parent['placeholder' + attrs.ngModel] = element.attr('placeholder');
+                            });
+                        }
+                    });
             };
         }
     };
-}]);
+});
