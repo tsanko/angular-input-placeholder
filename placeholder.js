@@ -1,8 +1,7 @@
-
 app.directive('ngPlaceholder', function () {
 
     var i = document.createElement('input');
-    if (i.hasOwnProperty('placeholder')) {
+    if ('placeholder' in i) {
         return {};
     }
 
