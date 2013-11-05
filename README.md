@@ -22,11 +22,13 @@ Extra functionality: Current revision is pushing the palceholder text to the rig
     }
     
     .placeholder {
-            position: absolute;
-            color: #aaa; /* HTML5 placeholder color */
-            top: XXpx;   /* depends on input height */
-            left: XXpx;  /* depends on input padding */
-            /* set font size */
+		position: absolute;
+		color: #aaa; /* HTML5 placeholder color */
+		top: XXpx;   /* depends on input height */
+		left: XXpx;  /* depends on input padding */
+		line-height: XXpx; /* depends on input's font size */
+		cursor: text;
+		/* set font size */
     }
     
     .placeholder.-selected {
