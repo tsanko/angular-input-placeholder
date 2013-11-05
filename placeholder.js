@@ -6,6 +6,7 @@ app.directive('ngPlaceholder', function () {
         // Don't isolate the scope as this directive modifies DOM outside the element's scope.
         //scope: {},
         compile: function (element, attrs) {
+            
             // --Use this if regular placeholder is used (except for IE9)
 			// var i = document.createElement('input');
 			// if ('placeholder' in i) {
