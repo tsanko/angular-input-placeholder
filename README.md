@@ -1,7 +1,7 @@
 angularjs-placeholder
 =====================
 
-Directive to fix IE9 issue not honoring HTML5 placeholder attribute. 
+AngularJS directive to make placeholder more flexible (will also fix IE9 not honoring HTML5 placeholder attribute). 
 It will inject and overlay a label so this solution will work with password field too.
 
 Extra functionality: Current revision is pushing the palceholder text to the right size of the field without hidding it.
