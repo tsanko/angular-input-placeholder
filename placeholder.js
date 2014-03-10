@@ -13,7 +13,7 @@ app.directive('ngPlaceholder', function () {
                 // var i = document.createElement('input');
                 // if ('placeholder' in i) {
                 //     // yay! placeholder is supported - set it!
-                //     element.attr('placeholder', attrs.zbxPlaceholder);
+                //     element.attr('placeholder', attrs.ngPlaceholder);
                 //     return {};
                 // }
 
@@ -35,21 +35,21 @@ app.directive('ngPlaceholder', function () {
 				function adjustInput() {
 					safeApply(scope, function () {
 						// --Use this if regular placeholder is used (except for IE9)
-						// scope['placeholder' + attrs.ngModel] = (input.val() === '') ? attrs.zbxPlaceholder : scope['placeholder' + attrs.ngModel] = '';
+						// scope['placeholder' + attrs.ngModel] = (input.val() === '') ? attrs.ngPlaceholder : scope['placeholder' + attrs.ngModel] = '';
 						// --else
 						if (input.val() === '') {
 							label.removeClass('-selected');
 
-							if (label.html() !== attrs.zbxPlaceholder) {
-								label.html(attrs.zbxPlaceholder);
+							if (label.html() !== attrs.ngPlaceholder) {
+								label.html(attrs.ngPlaceholder);
 							}
 
 						} else {
 							label.addClass('-selected');
 
 							if (label.html().length > 10) {
-								if (attrs.zbxPlaceholderShort && attrs.zbxPlaceholderShort.length > 0) {
-									label.html(attrs.zbxPlaceholderShort);
+								if (attrs.ngPlaceholderShort && attrs.ngPlaceholderShort.length > 0) {
+									label.html(attrs.ngPlaceholderShort);
 								} else {
 									label.html(label.html().substring(0, label.html().indexOf(' ')));
 								}
@@ -69,7 +69,7 @@ app.directive('ngPlaceholder', function () {
 				}
 
 				safeApply(scope, function () {
-					scope['placeholder' + attrs.ngModel] = attrs.zbxPlaceholder;
+					scope['placeholder' + attrs.ngModel] = attrs.ngPlaceholder;
 				});
 
 				// In case the input have some default value
@@ -85,15 +85,15 @@ app.directive('ngPlaceholder', function () {
 						// --Use this if regular placeholder is used (except for IE9)
 						// if (input.val() === '') {
 						//	scope.$apply(function () {
-						//		scope['placeholder' + attrs.ngModel] = attrs.zbxPlaceholder;
+						//		scope['placeholder' + attrs.ngModel] = attrs.ngPlaceholder;
 						//	});
 						// }
 						// --else
 						if (input.val() === '') {
 							label.removeClass('-selected');
 
-							if (label.html() !== attrs.zbxPlaceholder) {
-								label.html(attrs.zbxPlaceholder);
+							if (label.html() !== attrs.ngPlaceholder) {
+								label.html(attrs.ngPlaceholder);
 							}
 						}
 					});
