@@ -4,14 +4,15 @@ angularjs-placeholder
 AngularJS directive to make placeholder more flexible (will also fix IE9 not honoring HTML5 placeholder attribute). 
 It will inject and overlay a label so this solution will work with password field too.
 
-Extra functionality: Current revision is pushing the palceholder text to the right size of the field without hidding it.
+Extra functionality: Current revision is pushing the palceholder text to the right side of the field without hidding it as short placeholder will be used if defined.
 
 
 ### USAGE
 
     <div class="row" >
       <input ng-model="username" type="text"
-             ng-placeholder="Username" />
+             ng-placeholder="Address Line #1"
+             ng-placeholder-short="Address" />
     </div>
 
 ### CSS
