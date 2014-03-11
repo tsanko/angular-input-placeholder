@@ -1,4 +1,4 @@
-angularjs-placeholder
+angularjs-input-placeholder
 =====================
 
 AngularJS directive to make placeholder more flexible (will also fix IE9 not honoring HTML5 placeholder attribute). 
