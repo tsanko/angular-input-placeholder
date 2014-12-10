@@ -1,10 +1,10 @@
 angularjs-input-placeholder
 =====================
 
-AngularJS directive to make placeholder more flexible (will also fix IE9 not honoring HTML5 placeholder attribute). 
+AngularJS directive to make placeholder-like element. This will solve the problem IE9 not honoring HTML5 placeholder attribute ;). 
 It will inject and overlay a label so this solution will work with password field too.
 
-Extra functionality: Current revision is pushing the palceholder text to the right side of the field without hidding it as short placeholder will be used if defined.
+Extra functionality: Short text will be ised as placeholder if defined.
 
 
 ### USAGE
