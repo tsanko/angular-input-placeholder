@@ -29,40 +29,40 @@ app.directive('myPlaceholder', ['$timeout', function ($timeout) {
     			    label = input.closest('div').find('label.my-placeholder');
 
 			function adjustInput() {
-					safeApply(scope, function () {
-						// --Use this if regular placeholder is used (except for IE9)
-						// scope['placeholder' + attrs.ngModel] = (input.val() === '') ? attrs.ngPlaceholder : scope['placeholder' + attrs.ngModel] = '';
-						// --else
-						if (evt === undefined && input.val() === '') {
-							label.removeClass('-selected');
+				safeApply(scope, function () {
+					// --Use this if regular placeholder is used (except for IE9)
+					// scope['placeholder' + attrs.ngModel] = (input.val() === '') ? attrs.ngPlaceholder : scope['placeholder' + attrs.ngModel] = '';
+					// --else
+					if (evt === undefined && input.val() === '') {
+						label.removeClass('-selected');
 
-							if (label.html() !== attrs.myPlaceholder) {
-								label.html(attrs.myPlaceholder);
-							}
-
-						} else {
-							if (!label.hasClass('-selected')) {
-								label.addClass('-selected');
-							}
-
-							if (attrs.vnPlaceholderShort && attrs.vnPlaceholderShort.length > 0) {
-								label.html(attrs.vnPlaceholderShort);
-							}
-
-							// --This is needed in case placeholder will slide to right side of the input ***** 
-							// divider was calculated empirically (YMMV) - TT :)
-							//var divider = 2;
-
-							//if (label.html().length <= 5) {
-							//	divider = 1.7;
-							//}
-
-							//input.css('padding-right', label.html().length / divider + 'em');
-							// ********************************************************************************
+						if (label.html() !== attrs.myPlaceholder) {
+							label.html(attrs.myPlaceholder);
 						}
 
-					});
-				}
+					} else {
+						if (!label.hasClass('-selected')) {
+							label.addClass('-selected');
+						}
+
+						if (attrs.vnPlaceholderShort && attrs.vnPlaceholderShort.length > 0) {
+							label.html(attrs.vnPlaceholderShort);
+						}
+
+						// --This is needed in case placeholder will slide to right side of the input ***** 
+						// divider was calculated empirically (YMMV) - TT :)
+						//var divider = 2;
+
+						//if (label.html().length <= 5) {
+						//	divider = 1.7;
+						//}
+
+						//input.css('padding-right', label.html().length / divider + 'em');
+						// ********************************************************************************
+					}
+
+				});
+			}
 
 			safeApply(scope, function () {
 				$timeout(function () {
