@@ -17,7 +17,7 @@ app.directive('myPlaceholder', ['$timeout', function ($timeout) {
 	                //     return {};
 	                // }
 
-			element.parent().append('<label class="my-placeholder" ng-click="setFocusFor(\'' + attrs.id + '\')"></label>');
+			element.parent().append('<label class="my-placeholder"></label>');
 
             		return function (scope) {
 
@@ -27,10 +27,6 @@ app.directive('myPlaceholder', ['$timeout', function ($timeout) {
     
     			var input = element,
     			    label = input.closest('div').find('label.my-placeholder');
-
-			scope.setFocusFor = function (id) {
-				angular.element(document.querySelector('#' + id)).focus();
-			};
 
 			function adjustInput() {
 					safeApply(scope, function () {
@@ -77,6 +73,10 @@ app.directive('myPlaceholder', ['$timeout', function ($timeout) {
 			// In case the input have some default value
 			scope.$watch('attrs.ngModel', function () {
 				adjustInput();
+			});
+			
+			label.on('click', function () {
+				input.focus();
 			});
 
 			input
